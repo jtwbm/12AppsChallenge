@@ -88,7 +88,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '/assets/images/[name]' + (isProd ? '-[contenthash:8]' : '') + '.[ext]'
+              name: 'images/[name]' + (isProd ? '-[contenthash:8]' : '') + '.[ext]'
             }
           }
         ]
@@ -99,7 +99,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '/assets/fonts/[name].[ext]'
+              name: 'fonts/[name].[ext]'
             }
           }
         ]
@@ -109,7 +109,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: './app/index.html' }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name]' + (isProd ? '-[contenthash:8]' : '') + '.css'
+      filename: '[name]' + (isProd ? '-[contenthash:8]' : '') + '.css'
     }),
     new CleanWebpackPlugin(),
     new ImageminPlugin({
