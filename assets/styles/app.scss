@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,800&display=swap&subset=cyrillic');
 
 $yellow: #feb101;
-$blue: #09217A;
+$blue: #05809D;
 $text: #333333;
 
 html {
@@ -39,20 +39,6 @@ h2 {
 	line-height: 1.4;
 }
 
-h3 {
-	font-size: 5rem;
-	line-height: 1;
-	font-weight: 800;
-	margin: 0;
-}
-
-h4 {
-	font-size: 2rem;
-	font-weight: 600;
-	color: inherit;
-	margin: 3rem 0 1rem;
-}
-
 ul {
 	margin: 0;
 	padding: 0;
@@ -72,6 +58,46 @@ ul {
 	}
 }
 
+footer {
+	padding: 4rem 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	@media (max-width: 700px) {
+		justify-content: space-between;
+	}
+}
+
+
+.donate {
+	text-decoration: none;
+	color: $text;
+	font-size: 1.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20rem;
+	background-color: #7247D6;
+	color: #fff;
+	line-height: 1;
+	height: 3rem;
+	font-weight: 400;
+	border-radius: 1.5rem;
+	box-shadow: inset 0 0 1rem rgba(0,0,0,.2);
+	position: absolute;
+	right: 0;
+	top: -5rem;
+	transition: all .3s;
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		box-shadow: inset 0 0 2rem rgba(0,0,0,.4);
+	}
+}
+
 .nowrap {
 	white-space: nowrap;
 }
@@ -81,7 +107,7 @@ ul {
 	justify-content: center;
 	align-items: flex-start;
 	min-height: 100%;
-	padding: 4rem 0;
+	padding: 8rem 0;
 }
 
 .content {
@@ -164,11 +190,17 @@ ul {
 }
 
 .section {
-	margin: auto;
+	margin: 4rem auto 10rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
 	box-shadow: 0 0 3rem 0 rgba(0,0,0,.2);
+
+	&.even {
+		.section__title {
+			order: 1;
+		}
+	}
 
 	&__content {
 		flex: 0 0 50%;
@@ -182,7 +214,55 @@ ul {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		font-size: 3rem;
+		line-height: 1;
+		font-weight: 800;
+		margin: 0;
+		padding: 4rem;
+		text-align: center;
 	}
+}
+
+.copyright {
+	margin: 0 2rem 0 0;
+
+	a {
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.feedback {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	&__title {
+		margin-right: 1rem;
+	}
+	&__email {
+		font-weight: 600;
+	}
+
+	@media (max-width: 1024px) {
+		display: block;
+	}
+}
+
+.copy {
+	width: 2.5rem;
+	height: 2rem;
+	border: none;
+	display: inline-block;
+	vertical-align: middle;
+	background: center url(../images/copy.svg) no-repeat;
+	background-size: contain;
+	cursor: pointer;
 }
 
 @media (max-width: 1100px) {
@@ -203,6 +283,17 @@ ul {
 	}
 }
 
+@media (max-width: 800px) {
+	.section {
+		display: block;
+		margin: 0 auto 5rem;
+
+		&__title {
+			padding: 7rem 3rem;
+		}
+	}
+}
+
 @media (max-width: 640px) {
 	h1 {
 		font-size: 7vw;
@@ -212,6 +303,16 @@ ul {
 	}
 	.init {
 		padding: 10rem 2rem;
+	}
+}
+
+@media (max-width: 550px) {
+	footer {
+		display: block;
+		text-align: center;
+	}
+	.copyright {
+		margin: 0 0 4rem;
 	}
 }
 
@@ -228,6 +329,16 @@ ul {
 
 		.button {
 			bottom: 3rem;
+		}
+	}
+	.section {
+		&__content {
+			padding: 4rem 3rem;
+			font-size: 1.4rem;
+		}
+		&__title {
+			padding: 4rem;
+			font-size: 2.5rem;
 		}
 	}
 }
