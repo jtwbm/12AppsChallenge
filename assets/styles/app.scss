@@ -1,15 +1,19 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,800&display=swap&subset=cyrillic');
 
+$yellow: #feb101;
+$blue: #09217A;
+$text: #333333;
+
 html {
 	font-size: 10px;
 	height: 100%;
 }
 body {
-	background-color: #feb101;
+	background-color: $yellow;
 	color: #fff;
-	font: 400 1.6rem/1.4 'Montserrat Alternates', sans-serif;
-	height: 100%;
+	font: 400 1.5rem/1.5 'Montserrat Alternates', sans-serif;
+	min-height: 100%;
 
 	* {
 		box-sizing: border-box;
@@ -35,6 +39,39 @@ h2 {
 	line-height: 1.4;
 }
 
+h3 {
+	font-size: 5rem;
+	line-height: 1;
+	font-weight: 800;
+	margin: 0;
+}
+
+h4 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: inherit;
+	margin: 3rem 0 1rem;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		margin-bottom: 1rem;
+		line-height: 1.2;
+
+		&::before {
+			content: '\2022';
+			font-weight: 800;
+			color: $yellow;
+			display: inline-block;
+			margin-right: 1rem;
+		}
+	}
+}
+
 .nowrap {
 	white-space: nowrap;
 }
@@ -54,9 +91,9 @@ h2 {
 	position: relative;
 }
 
-.about {
+.init {
 	background-color: #fff;
-	color: #333;
+	color: $text;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -126,6 +163,28 @@ h2 {
 	}
 }
 
+.section {
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	box-shadow: 0 0 3rem 0 rgba(0,0,0,.2);
+
+	&__content {
+		flex: 0 0 50%;
+		background-color: #fff;
+		color: $text;
+		padding: 6rem 4rem;
+	}
+	&__title {
+		flex: 1 1 50%;
+		background-color: $blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
 @media (max-width: 1100px) {
 	h2 {
 		font-size: 1.6rem;
@@ -151,7 +210,7 @@ h2 {
 	h2 {
 		max-width: 90%;
 	}
-	.about {
+	.init {
 		padding: 10rem 2rem;
 	}
 }
@@ -164,7 +223,7 @@ h2 {
 	.socials {
 		margin-top: 3rem;
 	}
-	.about {
+	.init {
 		padding-bottom: 10rem;
 
 		.button {
