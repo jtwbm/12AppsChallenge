@@ -88,7 +88,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name]' + (isProd ? '-[contenthash:8]' : '') + '.[ext]'
+              name: '/assets/images/[name]' + (isProd ? '-[contenthash:8]' : '') + '.[ext]'
             }
           }
         ]
@@ -99,7 +99,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[name].[ext]'
+              name: '/assets/fonts/[name].[ext]'
             }
           }
         ]

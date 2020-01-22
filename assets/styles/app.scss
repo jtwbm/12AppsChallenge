@@ -3,9 +3,120 @@
 
 html {
 	font-size: 10px;
+	height: 100%;
 }
 body {
 	background-color: #feb101;
 	color: #fff;
 	font: 400 1.6rem/1.4 'Montserrat Alternates', sans-serif;
+	height: 100%;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 8rem;
+	line-height: 1;
+	margin: 0;
+	display: block;
+
+	@media (max-width: 1400px) {
+		font-size: 5.7vw;
+	}
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 400;
+	margin: 2rem 0 0;
+	line-height: 1;
+}
+
+.fullscreen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.content {
+	width: 110rem;
+	max-width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.about {
+	background-color: #fff;
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 15rem 5rem;
+	box-shadow: 0 0 3rem 0 rgba(0,0,0,.2);
+
+	.button {
+		position: absolute;
+		left: 50%;
+		bottom: 4rem;
+		margin-left: -1.5rem;
+	}
+}
+
+.socials {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	margin-top: 5rem;
+
+	&__item {
+		width: 3rem;
+		height: 3rem;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+		margin: 0 1rem;
+
+		&.instagram {
+			background-image: url(../images/instagram.svg);
+			
+			&:hover {
+				background-image: url(../images/instagram-hover.svg);
+			}
+		}
+		&.github {
+			background-image: url(../images/github.png);
+			
+			&:hover {
+				background-image: url(../images/github-hover.png);
+			}
+		}
+	}
+}
+
+.button {
+	background: none;
+	border: none;
+	display: block;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+	
+	&.next {
+		width: 3rem;
+		height: 3rem;
+		background: center bottom url(../images/down-arrow.svg) no-repeat;
+		background-size: contain;
+		transition: transform .3s;
+
+		&:hover {
+			transform: translateY(.5rem);
+		}
+	}
+}
+
+@media (max-width: 1100px) {
+
 }
