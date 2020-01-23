@@ -4,16 +4,18 @@
 $yellow: #feb101;
 $blue: #05809D;
 $text: #333333;
+$violet: #8c01fe;
 
 html {
 	font-size: 10px;
-	height: 100%;
+	min-height: 100%;
 }
 body {
-	background-color: $yellow;
+	background: linear-gradient(to bottom, $yellow, $violet);
 	color: #fff;
 	font: 400 1.5rem/1.5 'Montserrat Alternates', sans-serif;
 	min-height: 100%;
+	box-shadow: inset 0 0 3rem 0 rgba(0,0,0,.2);
 
 	* {
 		box-sizing: border-box;
@@ -58,6 +60,15 @@ ul {
 	}
 }
 
+ol {
+	margin: 0;
+	padding: 0 0 0 2rem;
+
+	li {
+		margin-bottom: 1rem;
+	}
+}
+
 footer {
 	padding: 4rem 0;
 	display: flex;
@@ -78,7 +89,7 @@ footer {
 	justify-content: center;
 	align-items: center;
 	width: 20rem;
-	background-color: #7247D6;
+	background-color: $violet;
 	color: #fff;
 	line-height: 1;
 	height: 3rem;
@@ -193,8 +204,10 @@ footer {
 	margin: 4rem auto 10rem;
 	display: flex;
 	justify-content: space-between;
+	background-color: #fff;
 	align-items: stretch;
 	box-shadow: 0 0 3rem 0 rgba(0,0,0,.2);
+	color: $text;
 
 	&.even {
 		.section__title {
@@ -204,13 +217,11 @@ footer {
 
 	&__content {
 		flex: 0 0 50%;
-		background-color: #fff;
-		color: $text;
 		padding: 6rem 4rem;
 	}
 	&__title {
 		flex: 1 1 50%;
-		background-color: $blue;
+		box-shadow: inset 0 0 9rem 0 rgb(220, 220, 220);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -265,6 +276,28 @@ footer {
 	cursor: pointer;
 }
 
+.tasks {
+	a {
+		text-decoration: none;
+		font-weight: 600;
+		color: inherit;
+
+		&:focus {
+			outline: none;
+		}
+		&:hover {
+			color: $blue;
+		}
+	}
+}
+
+.share {
+	width: 40%;
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 10rem;
+}
+
 @media (max-width: 1100px) {
 	h2 {
 		font-size: 1.6rem;
@@ -280,6 +313,9 @@ footer {
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
+	}
+	.share {
+		width: 70%;
 	}
 }
 
@@ -313,6 +349,10 @@ footer {
 	}
 	.copyright {
 		margin: 0 0 4rem;
+	}
+	.share {
+		width: 100%;
+		font-size: 1.7rem;
 	}
 }
 
