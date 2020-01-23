@@ -1,4 +1,4 @@
-import './styles/app.scss';
+import './styles/index.scss';
 import $ from 'jquery';
 
 $('.next').on('click', function() {

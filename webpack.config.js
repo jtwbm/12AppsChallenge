@@ -13,6 +13,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     index: path.resolve(__dirname, 'assets', 'index.js'),
+    project: path.resolve(__dirname, 'assets', 'project.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -107,7 +108,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './app/index.html' }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './app/index.html',
+      filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './app/scraper.html',
+      filename: 'scraper.html'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]' + (isProd ? '-[contenthash:8]' : '') + '.css'
     }),
