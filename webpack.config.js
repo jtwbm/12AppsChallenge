@@ -3,9 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const imageminMozjpeg = require('imagemin-mozjpeg');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -13,7 +12,6 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     index: path.resolve(__dirname, 'assets', 'index.js'),
-    project: path.resolve(__dirname, 'assets', 'project.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -95,12 +93,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(pdf)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[name].[ext]'
+              name: 'pdf/[name].[ext]'
             }
           }
         ]
@@ -108,30 +106,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './app/index.html',
-      filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './app/scraper.html',
-      filename: 'scraper.html'
-    }),
+    new HtmlWebpackPlugin({ template: './app/index.html', }),
     new MiniCssExtractPlugin({
       filename: '[name]' + (isProd ? '-[contenthash:8]' : '') + '.css'
     }),
+    new CopyPlugin([
+      { from: 'pdf', to: 'pdf' },
+    ]),
     new CleanWebpackPlugin(),
-    new ImageminPlugin({
-      disable: true,
-      test: /\.(jpg|jpeg|png|gif)$/i,
-      plugins: [
-        imageminMozjpeg({
-          quality: 75
-        })
-      ]
-    }),
   ],
 };
